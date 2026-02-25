@@ -3,7 +3,7 @@ name: Build & Publish xbdStats
 on:
   pull_request:
   push:
-    branches: [ main, 01_dockerize_xbdstats ]
+    branches: [ main ]
   workflow_dispatch:
 
 permissions:
