@@ -1,6 +1,7 @@
 name: Build & Publish xbdStats
 
 on:
+  pull_request:
   push:
     branches: [ main, 01_dockerize_xbdstats ]
   workflow_dispatch:
@@ -14,7 +15,7 @@ env:
   IMAGE_NAME: xbdstats
 
 jobs:
-  docker:
+  Build-and-Publish-xbdStats:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,6 +29,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Log in to GHCR
+        if: github.event_name != 'pull_request'
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
