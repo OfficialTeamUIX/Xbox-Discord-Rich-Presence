@@ -12,7 +12,7 @@ permissions:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: xbdstats
+  IMAGE_NAME: xbdStats
 
 jobs:
   Build-and-Publish-xbdStats:
@@ -40,7 +40,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}
           tags: |
             type=ref,event=branch
             type=ref,event=tag
