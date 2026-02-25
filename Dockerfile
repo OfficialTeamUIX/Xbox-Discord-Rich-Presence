@@ -24,6 +24,8 @@ RUN apk add --no-cache ca-certificates && update-ca-certificates
 
 WORKDIR /app
 COPY --from=builder /out/xbdStats /app/xbdStats
+COPY xbdStats-go/xbox360.json /app/xbox360.json
+COPY xbdStats-go/xbdStats.ini /app/xbdStats.ini
 
 EXPOSE 1101
 EXPOSE 1102
