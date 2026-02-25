@@ -24,7 +24,7 @@ RUN apk add --no-cache ca-certificates && update-ca-certificates
 
 WORKDIR /app
 COPY --from=builder /out/xbdStats /app/xbdStats
-COPY xbdStats-go/xbox360.json /app/xbox360.json
+COPY xbdStats-go/Release/xbox360.json /app/xbox360.json
 
 COPY xbdStats-go/entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
