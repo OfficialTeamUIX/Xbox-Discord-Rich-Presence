@@ -2,7 +2,7 @@ name: Build & Publish xbdStats
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, 01_dockerize_xbdstats ]
   workflow_dispatch:
 
 permissions:
