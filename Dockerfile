@@ -25,7 +25,9 @@ RUN apk add --no-cache ca-certificates && update-ca-certificates
 WORKDIR /app
 COPY --from=builder /out/xbdStats /app/xbdStats
 COPY xbdStats-go/xbox360.json /app/xbox360.json
-COPY xbdStats-go/xbdStats.ini /app/xbdStats.ini
+
+COPY xbdStats-go/entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
 
 EXPOSE 1101
 EXPOSE 1102
@@ -34,4 +36,4 @@ EXPOSE 1103
 RUN adduser -D -H -s /sbin/nologin appuser && chown -R appuser:appuser /app
 USER appuser
 
-ENTRYPOINT ["/app/xbdStats"]
+ENTRYPOINT ["/app/entrypoint.sh"]
